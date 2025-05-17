@@ -2,9 +2,10 @@ plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.android.library)
     id("com.vanniktech.maven.publish") version "0.32.0"
+    id("signing")
 }
 
-group = "com.haumealabs.rating"
+group = "com.haumealabs"
 version = "1.0.0"
 
 kotlin {
@@ -54,9 +55,6 @@ android {
 }
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
-
-    signAllPublications()
 
     coordinates(group.toString(), "kmp-rating", version.toString())
 
@@ -85,4 +83,12 @@ mavenPublishing {
             url.set("https://github.com/Haumea-Labs/kmp-rating")
         }
     }
+
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    signAllPublications()
+
+
+
+
 }

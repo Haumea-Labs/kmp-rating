@@ -1,4 +1,4 @@
-rootProject.name = "KMP-library"
+rootProject.name = "KMP-ratings"
 
 pluginManagement {
     repositories {
@@ -28,7 +28,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-includeBuild("convention-plugins")
 include(":rating")
 include(":sample:composeApp")
 
