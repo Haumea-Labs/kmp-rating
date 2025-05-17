@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.android.library)
@@ -11,7 +13,10 @@ version = "1.0.0"
 kotlin {
     jvmToolchain(17)
 
-    androidTarget { publishLibraryVariants("release") }
+    androidTarget {
+        publishLibraryVariants("release")
+    }
+
     iosX64()
     iosArm64()
     iosSimulatorArm64()
