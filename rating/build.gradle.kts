@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.android.library)
-    id("convention.publication")
+    id("com.vanniktech.maven.publish") version "0.32.0"
 }
 
 group = "com.haumealabs.rating"
@@ -50,5 +50,39 @@ android {
 
     defaultConfig {
         minSdk = 21
+    }
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    signAllPublications()
+
+    coordinates(group.toString(), "kmp-rating", version.toString())
+
+    pom {
+        name.set("KMP Ratings")
+        description.set("Kotlin Multiplatform Library for Ratings")
+        url.set("https://github.com/Haumea-Labs/kmp-rating")
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+        developers {
+            developer {
+                id.set("jsoriase")
+                name.set("jsoriase")
+                email.set("haumealabs@gmail.com")
+            }
+        }
+        scm {
+            connection.set("scm:git:git://github.com/Haumea-Labs/kmp-rating.git")
+            developerConnection.set("scm:git:ssh://git@github.com:haumealabs/tu-repo.git")
+            url.set("https://github.com/Haumea-Labs/kmp-rating")
+            url.set("https://github.com/Haumea-Labs/kmp-rating")
+        }
     }
 }
